@@ -12,7 +12,8 @@ const List<Alignment> cardsAlign = [
   Alignment(0.0, 0.8),
   Alignment(0.0, 0.0)
 ];
-List<Size> cardsSize = List.filled(3, Size(1, 1));
+// List<Size> cardsSize = List.filled(3, Size(1, 1));
+List<Size> cardsSize = List.filled(10, Size(1, 1));
 
 class SwipeableCardsSection extends StatefulWidget {
   final SwipeableCardSectionController? cardController;
@@ -46,12 +47,16 @@ class SwipeableCardsSection extends StatefulWidget {
     this.enableSwipeUp = true,
     this.enableSwipeDown = true,
   }) {
-    cardsSize[0] = Size(MediaQuery.of(context).size.width * cardWidthTopMul,
-        MediaQuery.of(context).size.height * cardHeightTopMul);
-    cardsSize[1] = Size(MediaQuery.of(context).size.width * cardWidthMiddleMul,
-        MediaQuery.of(context).size.height * cardHeightMiddleMul);
-    cardsSize[2] = Size(MediaQuery.of(context).size.width * cardWidthBottomMul,
-        MediaQuery.of(context).size.height * cardHeightBottomMul);
+    for (int i = 0; i < 10; i++) {
+      cardsSize[i] = Size(MediaQuery.of(context).size.width * cardWidthTopMul,
+          MediaQuery.of(context).size.height * cardHeightTopMul);
+    }
+    // cardsSize[0] = Size(MediaQuery.of(context).size.width * cardWidthTopMul,
+    //     MediaQuery.of(context).size.height * cardHeightTopMul);
+    // cardsSize[1] = Size(MediaQuery.of(context).size.width * cardWidthMiddleMul,
+    //     MediaQuery.of(context).size.height * cardHeightMiddleMul);
+    // cardsSize[2] = Size(MediaQuery.of(context).size.width * cardWidthBottomMul,
+    //     MediaQuery.of(context).size.height * cardHeightBottomMul);
   }
 
   @override
@@ -124,7 +129,8 @@ class _CardsSectionState extends State<SwipeableCardsSection>
     }
 
     // Init cards
-    for (cardsCounter = 0; cardsCounter < 3; cardsCounter++) {
+    // for (cardsCounter = 0; cardsCounter < 3; cardsCounter++) {
+    for (cardsCounter = 0; cardsCounter < 10; cardsCounter++) {
       if (widget.items.isNotEmpty && cardsCounter < widget.items.length) {
         cards.add(widget.items[cardsCounter]);
       } else {
